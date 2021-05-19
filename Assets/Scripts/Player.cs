@@ -11,7 +11,6 @@ public class Player : MonoBehaviour
         _moveFactory = new MoveFactory(this);
     }
 
-
     void OnCollisionEnter2D(Collision2D colision)
     {
         if (colision.gameObject.layer == (int)ELayer.GROUND)
