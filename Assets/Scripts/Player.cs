@@ -2,38 +2,24 @@
 
 public class Player : MonoBehaviour
 {
-    public float Speed;
-    private Rigidbody2D _rigidBody;
-    private Animator _animator;
-    private SpriteRenderer _spriteRenderer;
+    public float Speed = 10;
+    public float JumpForce = 2;
+    private MoveFactory _moveFactory;
 
     void Start()
     {
-        Speed = 10;
-        _rigidBody = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _moveFactory = new MoveFactory(this);
+    }
+
+
+    void OnCollisionEnter2D(Collision2D colision)
+    {
+        if (colision.gameObject.layer == (int)ELayer.GROUND)
+            _moveFactory.CanJump();
     }
 
     private void FixedUpdate()
     {
-        MoveFactory();
-    }
-
-    private void MoveFactory()
-    {
-        MoveRight();
-        MoveLeft();
-    }
-
-    public void MoveRight()
-    {
-        if (Input.GetKey(KeyCode.RightArrow))
-            _rigidBody.velocity = new Vector2(Speed, _rigidBody.velocity.y);
-    }
-    public void MoveLeft()
-    {
-        if (Input.GetKey(KeyCode.LeftArrow))
-            _rigidBody.velocity = new Vector2(-Speed, _rigidBody.velocity.y);
+        _moveFactory.Move(Speed, JumpForce);
     }
 }

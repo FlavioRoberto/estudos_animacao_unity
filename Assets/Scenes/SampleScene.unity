@@ -257,14 +257,14 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_LinearDrag: 0.05
+  m_AngularDrag: 0
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &139788148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,7 +277,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beb72b6e0480fa7488a0795cfea4f0af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 0
+  Speed: 5
+  JumpForce: 10
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,7 +468,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1484282991}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.8273588, y: 0.5238241, z: -13.749117}
+  m_LocalPosition: {x: 0.8273588, y: 0.5238241, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 727289289}
@@ -485,7 +486,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1613448453}
   - component: {fileID: 1613448452}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ground (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -567,7 +568,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1673536804}
   - component: {fileID: 1673536803}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ground (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -731,7 +732,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1763632737}
   - component: {fileID: 1763632736}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ground (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -813,7 +814,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1878638740}
   - component: {fileID: 1878638739}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -895,7 +896,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1915258395}
   - component: {fileID: 1915258394}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ground (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -977,7 +978,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2033075305}
   - component: {fileID: 2033075306}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
