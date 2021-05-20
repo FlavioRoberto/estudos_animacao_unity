@@ -279,6 +279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 5
   JumpForce: 10
+  StartTimeAttack: 0.5
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

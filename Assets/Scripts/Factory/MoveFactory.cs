@@ -4,6 +4,7 @@ public class MoveFactory
 {
     private Rigidbody2D _rigidBody;
     private Animator _animator;
+    private float _timeAttack;
     private SpriteRenderer _spriteRenderer;
     private bool _canJump;
 
@@ -24,8 +25,11 @@ public class MoveFactory
         _canJump = true;
     }
 
-    public void Move(float speed, float jumpForce)
+    public void Move(float speed, float jumpForce, float startTimeAttack)
     {
+        if (SimpleAttack(startTimeAttack))
+            return;
+
         if (Jump(jumpForce))
             return;
 
@@ -62,6 +66,29 @@ public class MoveFactory
         }
 
         return false;
+    }
+
+
+    private bool SimpleAttack(float StartTimeAttack)
+    {        
+        if (_timeAttack <= 0)
+        {
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                _animator.SetBool("isAttacking", true);
+                _timeAttack = StartTimeAttack;
+                return true;
+            }
+        }
+        else
+        {
+            _timeAttack -= Time.deltaTime;
+            return true;
+        }
+
+        _animator.SetBool("isAttacking", false);
+        return false;
+
     }
 
     private bool Jump(float force)
