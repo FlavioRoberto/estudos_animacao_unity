@@ -13,7 +13,6 @@ public class MoveFactory
         _rigidBody = behavior.GetComponent<Rigidbody2D>();
         _animator = behavior.GetComponent<Animator>();
         _spriteRenderer = behavior.GetComponent<SpriteRenderer>();
-
     }
 
     public void CanJump()
@@ -25,9 +24,12 @@ public class MoveFactory
         _canJump = true;
     }
 
-    public void Move(float speed, float jumpForce, float startTimeAttack)
+    public void Move(float speed, float jumpForce, float startTimeAttack, GameObject Energy, GameObject Point)
     {
         if (SimpleAttack(startTimeAttack))
+            return;
+
+        if (SpecialAttack(Energy, Point))
             return;
 
         if (Jump(jumpForce))
@@ -70,7 +72,7 @@ public class MoveFactory
 
 
     private bool SimpleAttack(float StartTimeAttack)
-    {        
+    {
         if (_timeAttack <= 0)
         {
             if (Input.GetKeyDown(KeyCode.X))
@@ -89,6 +91,17 @@ public class MoveFactory
         _animator.SetBool("isAttacking", false);
         return false;
 
+    }
+
+    private bool SpecialAttack(GameObject energy, GameObject point)
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            var bullet = Object.Instantiate(energy);
+            bullet.transform.position = point.transform.position;
+        }
+
+        return false;
     }
 
     private bool Jump(float force)

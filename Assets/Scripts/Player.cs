@@ -2,6 +2,8 @@
 
 public class Player : MonoBehaviour
 {
+    public GameObject Energy;
+    public GameObject Point;
     public float Speed = 10;
     public float JumpForce = 2;
     public float StartTimeAttack = 3;
@@ -14,7 +16,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _moveFactory.Move(Speed, JumpForce, StartTimeAttack);
+        _moveFactory.Move(Speed, JumpForce, StartTimeAttack, Energy, Point);
     }
 
     void OnCollisionEnter2D(Collision2D colision)
