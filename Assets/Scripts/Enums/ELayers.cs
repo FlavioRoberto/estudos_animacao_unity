@@ -1,6 +1,9 @@
 ﻿
-
-public enum ELayer
+namespace Enums
 {
-    GROUND = 8
+    public enum ELayer
+    {
+        GROUND = 8,
+        PLAYER = 9
+    }
 }

@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Assembly_CSharp.Assets.Scripts.Factory;
+using Enums;
+using UnityEngine;
 
 public class Player : MonoBehaviour
 {
@@ -23,5 +25,8 @@ public class Player : MonoBehaviour
     {
         if (colision.gameObject.layer == (int)ELayer.GROUND)
             _moveFactory.CanJump();
+
+        if (colision.gameObject.tag == ETags.ENEMY)
+            _moveFactory.Hit(JumpForce);
     }
 }

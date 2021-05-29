@@ -1,0 +1,5 @@
+namespace Enums{
+public static class EAnimations{
+
+}
+}
