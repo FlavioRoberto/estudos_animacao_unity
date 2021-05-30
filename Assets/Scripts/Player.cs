@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public float Speed = 10;
     public float JumpForce = 2;
     public float StartTimeAttack = 3;
+    public AudioClip AudioClip;
     private MoveFactory _moveFactory;
 
     void Start()

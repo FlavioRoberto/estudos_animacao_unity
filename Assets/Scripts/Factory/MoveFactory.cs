@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 namespace Assembly_CSharp.Assets.Scripts.Factory
 {
@@ -12,14 +13,14 @@ namespace Assembly_CSharp.Assets.Scripts.Factory
         private MoveSimpleAttack _moveSimpleAttack;
         private MoveSpecialAttack _moveSpecialAttack;
 
-        public MoveFactory(MonoBehaviour behavior)
+        public MoveFactory(Player player)
         {
-            _rigidBody = behavior.GetComponent<Rigidbody2D>();
-            _animator = behavior.GetComponent<Animator>();
-            _spriteRenderer = behavior.GetComponent<SpriteRenderer>();
+            _rigidBody = player.GetComponent<Rigidbody2D>();
+            _animator = player.GetComponent<Animator>();
+            _spriteRenderer = player.GetComponent<SpriteRenderer>();
             _moveJump = new MoveJump(_spriteRenderer, _rigidBody, _animator);
             _moveSimpleAttack = new MoveSimpleAttack(_spriteRenderer, _rigidBody, _animator, _timeAttack);
-            _moveSpecialAttack = new MoveSpecialAttack(_spriteRenderer, _rigidBody, _animator, _timeAttack);
+            _moveSpecialAttack = new MoveSpecialAttack(_spriteRenderer, _rigidBody, _animator, _timeAttack, player.AudioClip);
         }
 
         public void CanJump()

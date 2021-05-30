@@ -2,6 +2,7 @@
 
 public class Energy : MonoBehaviour
 {
+    public AudioClip AudioShoot;
     public float Speed;
     private Player _player;
     private Vector2 _direction;
@@ -13,6 +14,7 @@ public class Energy : MonoBehaviour
 
     void Update()
     {
+        Audio.current.Play(AudioShoot);
         transform.Translate(_direction * Time.deltaTime * Speed);
         Destroy(gameObject, 2f);
     }
